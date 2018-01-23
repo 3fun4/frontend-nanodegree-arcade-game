@@ -1,10 +1,6 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-## Introduction
-
-A clone of the classic arcade game frogger.
-
 ## Installation
 
 * Download the Github zip file or clone the repository. Open the index.html file in a browser.
