@@ -3,6 +3,10 @@
  *
  */
 
+var COL_SPACE = 25;
+
+var BLOCK_X = 101;
+var BLOCK_Y = 83;
 
 var PLAYER_START_POS_X = 202.5;
 var PLAYER_START_POS_Y = 383;
@@ -41,13 +45,16 @@ Enemy.prototype.update = function(dt) {
         this.x = 0;
     }
     //check collision
-    if (player.y + 131 >= this.y + 90
-        && player.x + 25 <= this.x + 88
-        && player.y + 73 <= this.y + 135
-        && player.x + 76 >= this.x + 11) {
-        console.log('collided');
-        player.reset();
+    for (var i = this.x; i <= this.x+BLOCK_X; i++) {
+        if (i >= player.x+COL_SPACE && i <= player.x+BLOCK_X-COL_SPACE) {
+            for (var j = this.y-BLOCK_Y; j <= this.y; j++) {
+                if (j >= player.y-BLOCK_Y+COL_SPACE && j <= player.y-COL_SPACE) {
+                    player.reset();
+                }
+            }
+        }
     }
+
 };
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -107,8 +114,7 @@ Player.prototype.handleInput = function(keyPress) {
         player.y = PLAYER_START_POS_Y;
         console.log('you made it!');//Win!!!
         //TODO: //display an animation
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-        ctx.globalAlpha = 1;
+
     }
 }
 Player.prototype.reset = function() {
@@ -132,6 +138,12 @@ for (var i=0; i < NUM_ENENIES; i++) {
     var startSpeed = Math.floor((Math.random() * 50) + 50);
     allEnemies.push(new Enemy(startX,startY,startSpeed));
 }
+//timer
+var timer = new Timer();
+timer.start();
+timer.addEventListener('secondsUpdated', function (e) {
+    $('#timer').html(timer.getTimeValues().toString());
+});
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
