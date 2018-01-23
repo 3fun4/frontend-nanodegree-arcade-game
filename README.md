@@ -4,7 +4,7 @@ frontend-nanodegree-arcade-game
 ## Installation
 
 * Download the Github zip file or clone the repository. Open the index.html file in a browser.
-* You can also **play it [here](https://3fun4.github.io/frontend-nanodegree-arcade-game/)**
+* You can also **play it [here](https://3fun4.github.io/frontend-nanodegree-arcade-game/)**.
 
 ## How to play
 
@@ -14,5 +14,5 @@ frontend-nanodegree-arcade-game
 
 ## Resources
 
-* **[jQuery](https://github.com/jquery/jquery)**
-* **[easytimer.js](https://github.com/albert-gonzalez/easytimer.js)**
+* [jQuery](https://github.com/jquery/jquery)
+* [easytimer.js](https://github.com/albert-gonzalez/easytimer.js)
