@@ -18,6 +18,13 @@ var PLAYER_MAX_Y_POS = 383;
 
 var NUM_ENENIES = 4;
 
+//timer
+var timer = new Timer();
+timer.start();
+timer.addEventListener('secondsUpdated', function (e) {
+    $('#timer').html(timer.getTimeValues().toString());
+});
+
 /**
  * Enemy
  *
@@ -114,12 +121,33 @@ Player.prototype.handleInput = function(keyPress) {
         player.y = PLAYER_START_POS_Y;
         console.log('you made it!');//Win!!!
         //TODO: //display an animation
-
+        timer.pause();
+        swal({
+            position: 'top',
+            allowOutsideClick:false,
+            showCancelButton: false,
+            type: 'success',
+            title: 'Congrats! You win!',
+            html:
+                `<span>Time:${timer.getTimeValues().toString()}</span>`
+        }).then((result) => {
+          if (result.value) {
+            //reset the game
+            resetGame();
+          }
+        });
     }
 }
 Player.prototype.reset = function() {
     this.x = PLAYER_START_POS_X;
     this.y = PLAYER_START_POS_Y;
+}
+
+//reset the game
+var resetGame = function() {
+    timer.stop();
+    timer.start();
+    player.reset();
 }
 
 /**
@@ -138,12 +166,7 @@ for (var i=0; i < NUM_ENENIES; i++) {
     var startSpeed = Math.floor((Math.random() * 50) + 50);
     allEnemies.push(new Enemy(startX,startY,startSpeed));
 }
-//timer
-var timer = new Timer();
-timer.start();
-timer.addEventListener('secondsUpdated', function (e) {
-    $('#timer').html(timer.getTimeValues().toString());
-});
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
