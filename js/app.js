@@ -1,8 +1,4 @@
-/**
- *
- *
- */
-
+//global variables to store postion values
 var COL_SPACE = 25;
 
 var BLOCK_X = 101;
@@ -25,10 +21,6 @@ timer.addEventListener('secondsUpdated', function (e) {
     $('#timer').html(timer.getTimeValues().toString());
 });
 
-/**
- * Enemy
- *
- */
 // Enemies our player must avoid
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
@@ -68,10 +60,6 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-/**
- * Player
- *
- */
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -150,10 +138,6 @@ var resetGame = function() {
     player.reset();
 }
 
-/**
- * Inital
- *
- */
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
@@ -166,7 +150,6 @@ for (var i=0; i < NUM_ENENIES; i++) {
     var startSpeed = Math.floor((Math.random() * 50) + 50);
     allEnemies.push(new Enemy(startX,startY,startSpeed));
 }
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
