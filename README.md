@@ -14,3 +14,4 @@ frontend-nanodegree-arcade-game
 
 ## Resources
 
+* **easytimer.js**: https://github.com/albert-gonzalez/easytimer.js
