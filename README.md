@@ -8,7 +8,7 @@ A clone of the classic arcade game frogger.
 ## Installation
 
 * Download the Github zip file of clone the repository. Open the index.html file in a browser.
-* You can also **play it [here](https://3fun4.github.io/frontend-nanodegree-arcade-game/)**
+* You can also **play it <a href="https://3fun4.github.io/frontend-nanodegree-arcade-game/" target="_blank">here</a>**
 
 ## How to play
 
